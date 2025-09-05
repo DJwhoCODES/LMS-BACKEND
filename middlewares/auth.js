@@ -47,3 +47,16 @@ export const isAuth = async (req, res, next) => {
         return res.status(500).json({ code: "SERVER_ERROR", message: "Internal server error" });
     }
 };
+
+export const isAdmin = (req, res, next) => {
+    try {
+        if (req?.user?.role !== "admin") {
+            return res.status(403).json({
+                message: "Admin privileges required!"
+            })
+        }
+        next();
+    } catch (error) {
+        return res.status(500).json({ code: "SERVER_ERROR", message: error.message });
+    }
+}

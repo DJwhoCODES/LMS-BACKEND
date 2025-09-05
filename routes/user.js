@@ -4,9 +4,9 @@ import { isAuth } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.post("/user/register", register);
-router.post("/user/verify-user", verifyUser);
-router.post("/user/login", loginUser);
-router.get("/user/my-profile", isAuth, myProfile);
+router.post("/register", register);
+router.post("/verify-user", verifyUser);
+router.post("/login", loginUser);
+router.get("/my-profile", isAuth, myProfile);
 
 export default router;
