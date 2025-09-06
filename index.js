@@ -4,6 +4,7 @@ import { connectDb } from "./database/db.js";
 import userRoutes from "./routes/user.js";
 import courseRoutes from "./routes/courses.js";
 import adminRoutes from "./routes/admin.js";
+import Razorpay from "razorpay";
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
+
+export const razorpayInstance = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY,
+    key_secret: process.env.RAZORPAY_SECRET
+})
 
 app.get("/", (req, res) => {
     res.send("Server is in healthy condition!");
