@@ -5,6 +5,7 @@
 3. npm i multer
 4. npm i uuid
 5. npm i razorpay
+6. npm i cors
 
 ## LEARNINGS
 

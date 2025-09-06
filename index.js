@@ -4,6 +4,7 @@ import { connectDb } from "./database/db.js";
 import userRoutes from "./routes/user.js";
 import courseRoutes from "./routes/courses.js";
 import adminRoutes from "./routes/admin.js";
+import cors from "cors";
 import Razorpay from "razorpay";
 
 dotenv.config();
@@ -12,6 +13,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
+
+app.use(cors());
 
 export const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY,
